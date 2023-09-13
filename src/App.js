@@ -1,4 +1,3 @@
-import "./App.css";
 import { TodoCounter } from "./components/TodoCounter";
 import { TodoItem } from "./components/TodoItem";
 import { TodoSearch } from "./components/TodoSearch";
