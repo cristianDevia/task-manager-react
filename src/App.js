@@ -1,8 +1,9 @@
-import { TodoCounter } from "./components/TodoCounter";
-import { TodoItem } from "./components/TodoItem";
-import { TodoSearch } from "./components/TodoSearch";
-import { TodoList } from "./components/TodoList";
-import { CreateTodoButton } from "./components/CreateTodoButton";
+import { CreateTodoButton } from "./components/CreateTodoButton/CreateTodoButton";
+import { TodoCounter } from "./components/TodoCounter/TodoCounter";
+import { TodoItem } from "./components/TodoItem/TodoItem";
+import { TodoList } from "./components/TodoList/TodoList";
+import { TodoSearch } from "./components/TodoSearch/TodoSearch";
+
 function App() {
   const defaultTodos = [
     { text: "Task1", completed: false },
