@@ -1,4 +1,12 @@
+import "./CreateTodoButton.css";
+import add_button from "../../assets/add_button.svg";
 function CreateTodoButton() {
-  return <button>Add Task</button>;
+  return (
+    <div>
+      <button id="addTask">
+        <img src={add_button} alt="" />
+      </button>
+    </div>
+  );
 }
 export { CreateTodoButton };
