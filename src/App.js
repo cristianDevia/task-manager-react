@@ -37,9 +37,9 @@ function App() {
         <TodoCounter completed={16} total={25} />
         <TodoSearch />
         <TodoList>
-          {defaultTodos.map((todo) => (
+          {defaultTodos.map((todo, index) => (
             <TodoItem
-              key={todo.text}
+              key={index}
               taskText={todo.text}
               completed={todo.completed}
             />
