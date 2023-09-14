@@ -4,10 +4,11 @@
   --fontSize_lg: 24px;
   --fontSize_md: 18px;
   --fontSize_sm: 16px;
+  --fontFamily: "Montserrat", sans-serif;
 }
 body {
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--fontFamily);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
