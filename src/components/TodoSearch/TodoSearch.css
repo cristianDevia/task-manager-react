@@ -6,4 +6,7 @@ input {
 }
 input::placeholder {
   text-align: center;
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize_md);
+  color: gray;
 }
