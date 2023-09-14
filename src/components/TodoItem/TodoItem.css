@@ -19,8 +19,12 @@ li {
 .removeItem {
   align-self: flex-start;
   margin-top: -10px;
+  padding-right: 10px;
 }
 p {
   text-align: center;
   padding: 10px;
+}
+li span:nth-child(1) {
+  padding-left: 10px;
 }
