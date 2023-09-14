@@ -25,6 +25,9 @@ p {
   text-align: center;
   padding: 10px;
 }
+.TodoItem-p--complete {
+  text-decoration: line-through;
+}
 li span:nth-child(1) {
   padding-left: 10px;
 }

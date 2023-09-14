@@ -7,7 +7,9 @@ function TodoItem({ taskText, completed }) {
       <span>
         <img src={check_icon} alt="check" />
       </span>
-      <p>{`${taskText}`}</p>
+      <p
+        className={`TodoItem-p ${completed && "TodoItem-p--complete"}`}
+      >{`${taskText}`}</p>
       <span className="removeItem">
         <img src={trash_x} alt="remove" />
       </span>
