@@ -1,0 +1,10 @@
+.title {
+  font-size: var(--fontSize_lg);
+  font-weight: normal;
+  text-align: center;
+  margin: 0;
+  padding: 48px;
+}
+.title span {
+  font-weight: bold;
+}

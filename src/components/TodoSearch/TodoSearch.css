@@ -1,0 +1,18 @@
+.searchTodo {
+  height: 45px;
+  width: 80%;
+  border: 1px solid black;
+  padding: 0;
+  text-align: center;
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize_md);
+}
+.searchTodo:focus {
+  outline-color: #61dafa;
+}
+.searchTodo::placeholder {
+  text-align: center;
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize_md);
+  color: gray;
+}
