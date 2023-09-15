@@ -1,6 +1,6 @@
 import "./TodoItem.css";
 import { CheckIcon } from "../../assets/CheckIcon";
-import { TrashIcon } from "../../assets/TrashIcon";
+import { RemoveIcon } from "../../assets/RemoveIcon";
 function TodoItem({ taskText, completed }) {
   return (
     <li>
@@ -11,7 +11,7 @@ function TodoItem({ taskText, completed }) {
         className={`TodoItem-p ${completed && "TodoItem-p--complete"}`}
       >{`${taskText}`}</p>
       <span className="removeItem">
-        <TrashIcon />
+        <RemoveIcon />
       </span>
     </li>
   );
