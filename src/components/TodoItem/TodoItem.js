@@ -3,7 +3,7 @@ import { CheckIcon } from "../../assets/CheckIcon";
 import { RemoveIcon } from "../../assets/RemoveIcon";
 function TodoItem({ taskText, completed }) {
   return (
-    <li>
+    <li className="todoItemList">
       <span>
         <CheckIcon completed={completed} />
       </span>

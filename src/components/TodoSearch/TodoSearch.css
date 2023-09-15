@@ -1,4 +1,4 @@
-input {
+.searchTodo {
   height: 45px;
   width: 80%;
   border: 1px solid black;
@@ -7,10 +7,10 @@ input {
   font-family: var(--fontFamily);
   font-size: var(--fontSize_md);
 }
-input:focus {
+.searchTodo:focus {
   outline-color: #61dafa;
 }
-input::placeholder {
+.searchTodo::placeholder {
   text-align: center;
   font-family: var(--fontFamily);
   font-size: var(--fontSize_md);

@@ -1,11 +1,9 @@
-li {
+.todoItemList {
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
   background-color: white;
-}
-li {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .removeItem {
@@ -16,14 +14,14 @@ li {
 .removeItem:hover {
   color: red;
 }
-p {
+.TodoItem-p {
   text-align: center;
   padding: 10px;
 }
 .TodoItem-p--complete {
   text-decoration: line-through;
 }
-li span:nth-child(1) {
+.todoItemList span:nth-child(1) {
   padding-left: 10px;
 }
 .icon-check-active {
