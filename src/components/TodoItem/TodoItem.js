@@ -1,17 +1,17 @@
 import "./TodoItem.css";
-import check_icon from "../../assets/check_icon.svg";
-import trash_x from "../../assets/trash_x.svg";
+import { CheckIcon } from "../../assets/CheckIcon";
+import { TrashIcon } from "../../assets/TrashIcon";
 function TodoItem({ taskText, completed }) {
   return (
     <li>
       <span>
-        <img src={check_icon} alt="check" />
+        <CheckIcon completed={completed} />
       </span>
       <p
         className={`TodoItem-p ${completed && "TodoItem-p--complete"}`}
       >{`${taskText}`}</p>
       <span className="removeItem">
-        <img src={trash_x} alt="remove" />
+        <TrashIcon />
       </span>
     </li>
   );

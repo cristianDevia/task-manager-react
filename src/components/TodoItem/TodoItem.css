@@ -21,6 +21,9 @@ li {
   margin-top: -10px;
   padding-right: 10px;
 }
+.removeItem:hover {
+  color: red;
+}
 p {
   text-align: center;
   padding: 10px;
@@ -30,4 +33,7 @@ p {
 }
 li span:nth-child(1) {
   padding-left: 10px;
+}
+.icon-check-active {
+  stroke: #4caf50;
 }
