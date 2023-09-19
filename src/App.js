@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import "./App.css";
 import { CreateTodoButton } from "./components/CreateTodoButton/CreateTodoButton";
 import { TodoCounter } from "./components/TodoCounter/TodoCounter";
@@ -19,7 +20,7 @@ function App() {
       Alias ullam eos cupiditate consequatur ipsam iusto optio vero voluptate, provident ad id maiores obcaecati nemo! Perspiciatis dolore, ex tenetur saepe ipsum odio praesentium eum voluptas rerum non. Magnam, nam!`,
       completed: true,
     },
-    { text: "Task3", completed: false },
+    { text: "Task 3", completed: false },
     {
       text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
       completed: true,
@@ -30,14 +31,22 @@ function App() {
       completed: true,
     },
   ];
+  const [todos, setTodos] = useState(defaultTodos);
+  const [searchValue, setSearchValue] = useState("");
+
+  const completedTodos = todos.filter((todo) => !!todo.completed).length;
+  const totalTodos = todos.length;
+  const searchedTodos = todos.filter((todo) =>
+    todo.text.toUpperCase().includes(searchValue.toUpperCase())
+  );
 
   return (
     <>
       <div className="container">
-        <TodoCounter completed={16} total={25} />
-        <TodoSearch />
+        <TodoCounter completed={completedTodos} total={totalTodos} />
+        <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
         <TodoList>
-          {defaultTodos.map((todo, index) => (
+          {searchedTodos.map((todo, index) => (
             <TodoItem
               key={index}
               taskText={todo.text}
