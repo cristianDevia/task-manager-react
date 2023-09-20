@@ -6,6 +6,9 @@
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+.todoItemList span:nth-child(1) {
+  cursor: pointer;
+}
 .removeItem {
   align-self: flex-start;
   margin-top: -15px;

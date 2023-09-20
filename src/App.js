@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { CreateTodoButton } from "./components/CreateTodoButton/CreateTodoButton";
 import { TodoCounter } from "./components/TodoCounter/TodoCounter";
@@ -33,8 +33,10 @@ function App() {
   ];
   const [todos, setTodos] = useState(defaultTodos);
   const [searchValue, setSearchValue] = useState("");
+  const [removeTodo, setRemoveTodo] = useState(null);
+  const [changeTodoCompleted, setChangeTodoCompleted] = useState(null);
 
-  const completedTodos = todos.filter((todo) => !!todo.completed).length;
+  const completedTodos = todos.filter((todo) => !!todo.completed);
   const totalTodos = todos.length;
   const searchedTodos = todos.filter((todo) =>
     todo.text.toUpperCase().includes(searchValue.toUpperCase())
@@ -43,14 +45,28 @@ function App() {
   return (
     <>
       <div className="container">
-        <TodoCounter completed={completedTodos} total={totalTodos} />
+        <TodoCounter completed={completedTodos.length} total={totalTodos} />
         <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
         <TodoList>
+          {changeTodoCompleted !== null
+            ? todos.find((todo, index) => {
+                if (index === changeTodoCompleted) {
+                  setChangeTodoCompleted(null);
+                  todo.completed = true;
+                }
+              })
+            : null}
+          {removeTodo !== null
+            ? todos.splice(removeTodo, 1) && setRemoveTodo(null)
+            : null}
           {searchedTodos.map((todo, index) => (
             <TodoItem
               key={index}
+              index={index}
               taskText={todo.text}
               completed={todo.completed}
+              setRemoveTodo={setRemoveTodo}
+              setChangeTodoCompleted={setChangeTodoCompleted}
             />
           ))}
         </TodoList>
