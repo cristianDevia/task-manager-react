@@ -8,12 +8,16 @@ function TodoItem({
   completed,
   setRemoveTodo,
   setChangeTodoCompleted,
+  setTodoIndex,
 }) {
   return (
     <li className="todoItemList">
       <span
         onClick={() => {
-          !completed && setChangeTodoCompleted(index);
+          setTodoIndex(index);
+          if (!completed) {
+            setChangeTodoCompleted(true);
+          } else setChangeTodoCompleted(false);
         }}
       >
         <CheckIcon completed={completed} />

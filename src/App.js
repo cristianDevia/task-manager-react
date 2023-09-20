@@ -33,6 +33,7 @@ function App() {
   ];
   const [todos, setTodos] = useState(defaultTodos);
   const [searchValue, setSearchValue] = useState("");
+  const [todoIndex, setTodoIndex] = useState(null);
   const [removeTodo, setRemoveTodo] = useState(null);
   const [changeTodoCompleted, setChangeTodoCompleted] = useState(null);
 
@@ -48,17 +49,24 @@ function App() {
         <TodoCounter completed={completedTodos.length} total={totalTodos} />
         <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
         <TodoList>
-          {changeTodoCompleted !== null
-            ? todos.find((todo, index) => {
-                if (index === changeTodoCompleted) {
-                  setChangeTodoCompleted(null);
-                  todo.completed = true;
-                }
-              })
-            : null}
-          {removeTodo !== null
-            ? todos.splice(removeTodo, 1) && setRemoveTodo(null)
-            : null}
+          {
+            // Change the todo state
+            todoIndex !== null
+              ? todos.find((todo, index) => {
+                  if (index === todoIndex) {
+                    setTodoIndex(null);
+                    todo.completed = changeTodoCompleted;
+                    return todo;
+                  }
+                })
+              : null
+          }
+          {
+            // Delete todo
+            removeTodo !== null
+              ? todos.splice(removeTodo, 1) && setRemoveTodo(null)
+              : null
+          }
           {searchedTodos.map((todo, index) => (
             <TodoItem
               key={index}
@@ -67,6 +75,7 @@ function App() {
               completed={todo.completed}
               setRemoveTodo={setRemoveTodo}
               setChangeTodoCompleted={setChangeTodoCompleted}
+              setTodoIndex={setTodoIndex}
             />
           ))}
         </TodoList>
