@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { CreateTodoButton } from "./components/CreateTodoButton/CreateTodoButton";
 import { TodoCounter } from "./components/TodoCounter/TodoCounter";
@@ -33,49 +33,46 @@ function App() {
   ];
   const [todos, setTodos] = useState(defaultTodos);
   const [searchValue, setSearchValue] = useState("");
-  const [todoIndex, setTodoIndex] = useState(null);
-  const [removeTodo, setRemoveTodo] = useState(null);
-  const [changeTodoCompleted, setChangeTodoCompleted] = useState(null);
 
   const completedTodos = todos.filter((todo) => !!todo.completed);
   const totalTodos = todos.length;
   const searchedTodos = todos.filter((todo) =>
     todo.text.toUpperCase().includes(searchValue.toUpperCase())
   );
-
+  const completeTodo = (index) => {
+    const newTodos = [...todos];
+    if (index !== null) {
+      if (!newTodos[index].completed) {
+        newTodos[index].completed = true;
+      } else newTodos[index].completed = false;
+      setTodos(newTodos);
+    }
+  };
+  const deleteTodos = (index) => {
+    const newTodos = [...todos];
+    if (index !== null) {
+      newTodos.splice(index, 1);
+      setTodos(newTodos);
+    }
+  };
   return (
     <>
       <div className="container">
         <TodoCounter completed={completedTodos.length} total={totalTodos} />
         <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
         <TodoList>
-          {
-            // Change the todo state
-            todoIndex !== null
-              ? todos.find((todo, index) => {
-                  if (index === todoIndex) {
-                    setTodoIndex(null);
-                    todo.completed = changeTodoCompleted;
-                    return todo;
-                  }
-                })
-              : null
-          }
-          {
-            // Delete todo
-            removeTodo !== null
-              ? todos.splice(removeTodo, 1) && setRemoveTodo(null)
-              : null
-          }
           {searchedTodos.map((todo, index) => (
             <TodoItem
               key={index}
               index={index}
               taskText={todo.text}
               completed={todo.completed}
-              setRemoveTodo={setRemoveTodo}
-              setChangeTodoCompleted={setChangeTodoCompleted}
-              setTodoIndex={setTodoIndex}
+              completeTodo={() => {
+                completeTodo(index);
+              }}
+              deleteTodos={() => {
+                deleteTodos(index);
+              }}
             />
           ))}
         </TodoList>
