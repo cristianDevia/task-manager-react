@@ -55,6 +55,7 @@ function App() {
       setTodos(newTodos);
     }
   };
+
   return (
     <>
       <div className="container">
@@ -64,7 +65,6 @@ function App() {
           {searchedTodos.map((todo, index) => (
             <TodoItem
               key={index}
-              index={index}
               taskText={todo.text}
               completed={todo.completed}
               completeTodo={() => {
