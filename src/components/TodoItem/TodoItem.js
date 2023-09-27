@@ -1,16 +1,17 @@
 import "./TodoItem.css";
 import { CheckIcon } from "../../assets/CheckIcon";
 import { RemoveIcon } from "../../assets/RemoveIcon";
-function TodoItem({ taskText, completed }) {
+
+function TodoItem({ taskText, completed, completeTodo, deleteTodos }) {
   return (
     <li className="todoItemList">
-      <span>
+      <span onClick={completeTodo}>
         <CheckIcon completed={completed} />
       </span>
       <p
         className={`TodoItem-p ${completed && "TodoItem-p--complete"}`}
       >{`${taskText}`}</p>
-      <span className="removeItem">
+      <span className="removeItem" onClick={deleteTodos}>
         <RemoveIcon />
       </span>
     </li>
